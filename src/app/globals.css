@@ -105,7 +105,9 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
 .services-section { background: #000; padding-block: 80px 100px; }
 .services-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 .services-about .eyebrow { color: #ff5969; font-size: 10px; margin-bottom: 16px; }
-.services-about h2 { font-size: clamp(38px, 4vw, 56px); text-transform: uppercase; line-height: 1; margin-bottom: 24px; }
+.services-about h2 { font-size: clamp(48px, 5.5vw, 78px); text-transform: uppercase; line-height: 1; margin-bottom: 22px; letter-spacing: -1.5px; }
+.services-about h2 span { color: #ff5969; }
+.services-about .about-tagline { color: var(--foreground); font-size: 20px; font-weight: 600; margin-bottom: 16px; }
 .services-about p { font-size: 14px; line-height: 1.8; color: #b5b5b5; max-width: 440px; }
 .services-about h3 { font-size: 16px; line-height: 1.4; font-weight: 600; margin: 26px 0 10px; }
 .services-about .text-link { margin-top: 16px; font-size: 12px; }
@@ -116,8 +118,6 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
 .services-heading p { color: var(--muted); margin-top: 14px; font-size: 14px; line-height: 1.7; }
 .services-section .services-list { max-width: 1100px; margin-inline: auto; }
 .service-preview { margin: 0; scroll-margin-top: 110px; }
-.service-photo-layer { position: absolute; inset: 0; }
-.service-preview-note { margin-left: auto; font-size: 10px; color: var(--muted); }
 .service-photo { height: auto; aspect-ratio: 1.5; border-radius: 0 26px 26px 0; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); background: #202528; }
 .services-section .photo-caption { font-size: 11px; padding-top: 12px; }
 .service-photo img { object-position: 56% center; }
@@ -271,7 +271,7 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
   .section-intro { max-width: 430px; font-size: 14px; }
   .services-layout { grid-template-columns: 1fr; gap: 32px; }
   .services-section { padding-block: 48px 64px; }
-  .services-about h2 { font-size: 40px; margin-bottom: 20px; }
+  .services-about h2 { font-size: clamp(44px, 10vw, 64px); margin-bottom: 20px; }
   .services-about h3 { font-size: 16px; margin-top: 24px; }
   .services-divider { margin-block: 38px 28px; }
   .services-heading { margin-bottom: 28px; }

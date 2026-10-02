@@ -9,7 +9,7 @@ import { BrandIntro } from "@/components/brand-intro";
 import Testimonial1 from "@/components/ui/testimonial-section-1";
 import { CareCards } from "@/components/care-cards";
 import { ServiceSelectionProvider } from "@/components/service-selection";
-import { ServicePreview } from "@/components/service-preview";
+import { AboutPhoto } from "@/components/about-photo";
 
 export default function Home() {
   return <>
@@ -37,17 +37,18 @@ export default function Home() {
 
       <section className="services-section section-space" id="servicos" tabIndex={-1} aria-labelledby="services-title">
         <div className="container">
-          <div className="services-layout">
-            <Reveal className="services-visual"><ServicePreview /></Reveal>
+          <section className="services-layout" id="sobre" aria-labelledby="about-title">
+            <Reveal className="services-visual"><AboutPhoto /></Reveal>
             <Reveal className="services-about">
-              <p className="eyebrow">Sobre a FCar Garage</p>
-              <h2>Seu carro.<br />Nosso cuidado.</h2>
+              <p className="eyebrow">FGCAR Garage</p>
+              <h2 id="about-title">Sobre <span>nós</span></h2>
+              <p className="about-tagline">Seu carro. Nosso cuidado.</p>
               <p>O brilho chama atenção. O cuidado faz a diferença. Da pintura aos vidros, tratamos cada superfície para valorizar o acabamento do seu carro.</p>
               <h3>Um tratamento para cada necessidade.</h3>
               <p>Avaliamos o veículo e ajudamos você a escolher a proteção e o acabamento que combinam com a sua rotina.</p>
               <a className="text-link" href="#contato">Converse com a nossa equipe<ArrowUpRight size={16} aria-hidden="true" /></a>
             </Reveal>
-          </div>
+          </section>
           <div className="services-divider" aria-hidden="true" />
           <Reveal className="services-heading"><h2 id="services-title">Nossos serviços</h2><p>Escolha um serviço e descubra o cuidado por trás de cada detalhe.</p></Reveal>
           <Reveal><Services /></Reveal>

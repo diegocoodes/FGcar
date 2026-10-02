@@ -15,13 +15,13 @@ export function CareCards() {
   const { selectedService, selectService } = useServiceSelection();
   const reduced = useReducedMotion();
   return care.map((item) => (
-    <a className="care-item" href={item.href} key={item.title} data-stagger data-selected={selectedService?.id === item.href.slice(1)} aria-controls="service-preview" onClick={(event) => {
+    <a className="care-item" href={item.href} key={item.title} data-stagger data-selected={selectedService?.id === item.href.slice(1)} onClick={(event) => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       const serviceId = item.href.slice(1);
       selectService(serviceId);
       document.getElementById(serviceId)?.querySelector("summary")?.focus({ preventScroll: true });
-      document.getElementById("service-preview")?.scrollIntoView({ behavior: reduced ? "instant" : "smooth", block: "start" });
+      document.getElementById(item.href.slice(1))?.scrollIntoView({ behavior: reduced ? "instant" : "smooth", block: "start" });
       window.history.replaceState(null, "", item.href);
     }}>
       <span className="care-service">{item.service}</span><h3>{item.title}</h3><p>{item.text}</p>

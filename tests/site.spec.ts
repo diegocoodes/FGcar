@@ -56,81 +56,34 @@ test("um segundo comando durante a expansão também recolhe o serviço", async 
   await expect(item).not.toHaveAttribute("open", "");
 });
 
-test("cada serviço e card de cuidado troca a foto no bloco de serviços", async ({ page }, testInfo) => {
+test("imagem do sobre permanece fixa ao selecionar serviços e cards", async ({ page }, testInfo) => {
   await page.goto("/");
-  const treatments = [
-    { id: "vitrificacao", name: "Vitrificação" },
-    { id: "ppf", name: "PPF" },
-    { id: "polimento", name: "Polimento técnico" },
-    { id: "insulfilm", name: "Insulfilm" },
-    { id: "antivandalismo", name: "Película antivandalismo" },
-  ];
-  const preview = page.locator("#service-preview");
-  const photo = preview.locator(".service-photo");
-  const initialHeight = (await photo.boundingBox())!.height;
-  for (const treatment of treatments) {
-    const summary = page.locator(`#${treatment.id} summary`);
+  const image = page.locator("#about-photo img");
+  await image.scrollIntoViewIfNeeded();
+  await expect(page.getByRole("heading", { name: "Sobre nós" })).toBeVisible();
+  await expect(image).toHaveAttribute("src", /about-fgcar\.jpg/);
+  await expect.poll(() => image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  const originalSource = await image.getAttribute("src");
+  for (const id of ["vitrificacao", "ppf", "polimento", "insulfilm", "antivandalismo"]) {
+    const summary = page.locator(`#${id} summary`);
     await summary.click();
-    await expect(preview.locator("figcaption")).toContainText(treatment.name);
-    await expect(preview.locator("img")).toHaveCount(1);
-    await expect(preview.locator("img")).toHaveAttribute("src", new RegExp(`${treatment.id}\\.webp`));
-    await expect.poll(() => preview.locator("img").evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-    await expect(summary).toBeFocused();
-    await expect(page.getByRole("dialog")).toHaveCount(0);
-    await expect(page.locator("body")).not.toHaveCSS("overflow", "hidden");
-    expect((await photo.boundingBox())!.height).toBeCloseTo(initialHeight, 0);
+    await expect(page.locator(`#${id}`)).toHaveAttribute("open", "");
+    await expect(image).toHaveAttribute("src", originalSource!);
     await summary.click();
   }
   for (const card of [
-    { title: "Recuperar o acabamento", service: "Polimento técnico", image: "polimento" },
-    { title: "Facilitar a conservação", service: "Vitrificação", image: "vitrificacao" },
-    { title: "Proteger a pintura", service: "PPF", image: "ppf" },
-    { title: "Cuidar dos vidros", service: "Insulfilm", image: "insulfilm" },
+    { title: "Recuperar o acabamento", id: "polimento" },
+    { title: "Facilitar a conservação", id: "vitrificacao" },
+    { title: "Proteger a pintura", id: "ppf" },
+    { title: "Cuidar dos vidros", id: "insulfilm" },
   ]) {
-    const link = page.locator(".care-item").filter({ has: page.getByRole("heading", { name: card.title }) });
-    await link.click();
-    await expect(preview.locator("figcaption")).toContainText(card.service);
-    await expect(preview.locator("img")).toHaveCount(1);
-    await expect(preview.locator("img")).toHaveAttribute("src", new RegExp(`${card.image}\\.webp`));
-    await expect(page.locator(`#${card.image} summary`)).toBeFocused();
-    await expect(page).toHaveURL(new RegExp(`#${card.image}$`));
+    await page.locator(".care-item").filter({ has: page.getByRole("heading", { name: card.title }) }).click();
+    await expect(page.locator(`#${card.id} summary`)).toBeFocused();
+    await expect(image).toHaveAttribute("src", originalSource!);
   }
-  await page.evaluate(() => {
-    document.querySelector<HTMLElement>("#polimento summary")!.click();
-    document.querySelector<HTMLElement>("#ppf summary")!.click();
-  });
-  await expect(preview.locator("figcaption")).toContainText("PPF");
-  await expect(preview.locator("img")).toHaveCount(1);
-  await expect(preview.locator("img")).toHaveAttribute("src", /ppf\.webp/);
-  await page.waitForTimeout(400);
-  await expect(preview.locator("figcaption")).toContainText("PPF");
-  await page.locator(".services-layout").screenshot({ path: `test-results/service-preview-${testInfo.project.name}.png` });
+  await page.locator(".services-layout").screenshot({ path: `test-results/about-${testInfo.project.name}.png` });
   const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
   expect(results.violations).toEqual([]);
-});
-
-test("foto anterior permanece durante o carregamento e movimento reduzido é respeitado", async ({ page }) => {
-  let release!: () => void;
-  const loading = new Promise<void>((resolve) => { release = resolve; });
-  await page.route((url) => url.pathname === "/_next/image" && url.searchParams.get("url") === "/images/services/insulfilm.webp", async (route) => {
-    await loading;
-    await route.continue();
-  });
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
-  await page.locator("#insulfilm summary").click();
-  const preview = page.locator("#service-preview");
-  await expect(preview.locator("img").first()).toHaveAttribute("src", /detail\.webp/);
-  await expect(preview.locator(".service-photo-layer").last()).toHaveCSS("opacity", "0");
-  await expect(preview.locator("figcaption")).toHaveText("O acabamento começa no cuidado.");
-  release();
-  await expect(preview.locator("figcaption")).toContainText("Insulfilm");
-  await expect(preview.locator("img")).toHaveCount(1);
-  await preview.locator(".photo-image").hover();
-  await expect(preview.locator(".photo-image")).toHaveCSS("transform", "none");
-  await expect(preview.locator(".photo-parallax")).toHaveCSS("transform", "none");
-  await expect(page.locator("#insulfilm summary")).toBeFocused();
-  await expect(page.getByRole("dialog")).toHaveCount(0);
 });
 
 test("menu mobile contém foco, fecha com Escape e navega", async ({ page }, testInfo) => {
