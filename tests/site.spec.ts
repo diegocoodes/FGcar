@@ -12,7 +12,7 @@ test("conteúdo, imagens, contato e layout", async ({ page }, testInfo) => {
   await expect(page.locator(".service-item")).toHaveCount(5);
   const contact = page.getByRole("link", { name: /Abrir WhatsApp da FGCAR/ });
   await expect(contact).toHaveAttribute("href", "https://wa.me/5511998393642");
-  await expect(page.getByRole("link", { name: /\+55 11 99839-3642/ })).toHaveAttribute("href", "tel:+5511998393642");
+  await expect(page.locator(".contact-layout")).not.toContainText("+55 11 99839-3642");
   await expect(contact).toHaveAttribute("rel", "noopener noreferrer");
   await expect(page.locator("body")).not.toContainText(/[—–]/);
   expect(await page.locator("main p, main h1, main h2, main h3").evaluateAll((elements) => elements.some((element) => /\s-\s/.test(element.textContent ?? "")))).toBe(false);

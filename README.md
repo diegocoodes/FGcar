@@ -33,9 +33,11 @@ Para executar as verificações de navegação, layout e acessibilidade em deskt
 - `src/components/`: menu acessível, animações progressivas e expansão dos serviços.
 - `public/images/`: fotografias ilustrativas locais.
 
-O WhatsApp fornecido para contato da FCar Garage é +55 11 99839-3642, com link direto para `https://wa.me/5511998393642` e opção de ligação. O Instagram permanece disponível para acompanhar o trabalho. Os dados das avaliações mantêm sua atribuição original.
+O WhatsApp fornecido para contato da FCar Garage é +55 11 99839-3642, com link direto para `https://wa.me/5511998393642`. O número não é exibido no card do formulário. O Instagram permanece disponível para acompanhar o trabalho. Os dados das avaliações mantêm sua atribuição original.
 
 O formulário de contato solicita nome, veículo e serviço, com detalhes opcionais. Ao continuar, abre o WhatsApp com a mensagem pronta para revisão e envio pelo visitante. Um botão fixo no canto inferior direito mantém acesso ao WhatsApp durante a rolagem.
+
+O rodapé reúne navegação, serviços, redes sociais e acesso ao orçamento. As entradas ao rolar usam Motion com sequência nos cards, aproximação suave na foto e expansão da faixa vermelha. As interações de hover acompanham o estilo dos cards. A preferência por movimento reduzido desativa as entradas e os deslocamentos decorativos.
 
 ## Assets a substituir
 

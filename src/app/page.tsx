@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight, Instagram, MapPin, MessageCircle } from "lucide-react";
 import { Header } from "@/components/header";
-import { Brand } from "@/components/brand";
+import { Footer } from "@/components/footer";
 import { HeroEntrance, Photo, Reveal } from "@/components/animation";
 import { Services } from "@/components/services";
 import { site } from "@/config/site";
@@ -40,7 +40,7 @@ export default function Home() {
       <section className="services-section section-space" id="servicos" tabIndex={-1} aria-labelledby="services-title">
         <div className="container">
           <section className="services-layout" id="sobre" aria-labelledby="about-title">
-            <Reveal className="services-visual"><AboutPhoto /></Reveal>
+            <Reveal className="services-visual" variant="photo"><AboutPhoto /></Reveal>
             <Reveal className="services-about">
               <p className="eyebrow">FGCAR Garage</p>
               <h2 id="about-title">Sobre <span>nós</span></h2>
@@ -51,7 +51,7 @@ export default function Home() {
               <a className="text-link" href="#contato">Converse com a nossa equipe<ArrowUpRight size={16} aria-hidden="true" /></a>
             </Reveal>
           </section>
-          <div className="services-divider" aria-hidden="true" />
+          <div aria-hidden="true"><Reveal className="services-divider" variant="line">{null}</Reveal></div>
           <Reveal className="services-heading"><h2 id="services-title">Nossos serviços</h2><p>Escolha um serviço e descubra o cuidado por trás de cada detalhe.</p></Reveal>
           <Reveal><Services /></Reveal>
         </div>
@@ -75,8 +75,6 @@ export default function Home() {
           <Reveal className="contact-layout">
             <span className="contact-icon" aria-hidden="true"><MessageCircle size={30} /></span>
             <p className="contact-card-label">Fale com a FGCAR Garage</p>
-            <div className="contact-phone"><a href={site.phoneHref} aria-label={`Ligar para ${site.phone}`}>{site.phone}</a></div>
-            <p className="contact-channel">Telefone e WhatsApp</p>
             <ContactForm />
             <div className="contact-links">
               <div className="contact-detail"><MapPin size={18} aria-hidden="true" /><span>{site.location}</span></div>
@@ -88,6 +86,6 @@ export default function Home() {
       </section>
     </main></ServiceSelectionProvider>
     <WhatsAppButton />
-    <footer className="site-footer"><div className="container footer-main"><Brand /><p>Estética automotiva.<br />{site.location}</p><a className="footer-instagram" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram<ArrowUpRight size={17} /><span className="sr-only"> (abre em uma nova aba)</span></a><a className="back-top" href="#inicio">Voltar ao início<ArrowUpRight size={17} /></a></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Fotografias ilustrativas.</span></div></footer>
+    <Footer />
   </>;
 }

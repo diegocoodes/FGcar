@@ -10,7 +10,7 @@ function subscribeDesktop(callback: () => void) {
   return () => media.removeEventListener("change", callback);
 }
 
-export function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+export function Reveal({ children, className = "", delay = 0, variant = "rise" }: { children: ReactNode; className?: string; delay?: number; variant?: "rise" | "photo" | "line" }) {
   const [scope, animate] = useAnimate<HTMLDivElement>();
   const inView = useInView(scope, { once: true, amount: 0.12 });
   const reduced = useReducedMotion();
@@ -18,14 +18,17 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
   useEffect(() => {
     if (!inView || played.current) return;
     played.current = true;
+    scope.current.setAttribute("data-revealed", "true");
+    if (reduced) return;
     // Progressive enhancement: the server markup is always visible.
-    const distance = window.matchMedia("(min-width: 768px)").matches ? 16 : 8;
+    const distance = window.matchMedia("(min-width: 768px)").matches ? 28 : 12;
     const items = Array.from(scope.current.querySelectorAll<HTMLElement>("[data-stagger]"));
     const targets = items.length ? items : [scope.current];
-    const animations = targets.map((element, index) => animate(element, { opacity: [0.6, 1], y: reduced ? [0, 0] : [distance, 0] }, { duration: 0.4, delay: reduced ? 0 : delay + index * 0.06, ease: "easeOut" }));
-    scope.current.setAttribute("data-revealed", "true");
+    const animations = targets.map((element, index) => animate(element,
+      variant === "line" ? { scaleX: [0.65, 1], skewX: -15, opacity: [0.5, 1] } : variant === "photo" ? { scale: [1.025, 1], opacity: [0.5, 1], y: [distance / 2, 0] } : { opacity: [0.45, 1], y: [distance, 0] },
+      { duration: variant === "photo" ? 0.8 : 0.65, delay: delay + index * 0.1, ease: [0.22, 1, 0.36, 1] }));
     return () => { animations.forEach((animation) => animation.complete()); };
-  }, [inView, reduced, animate, scope, delay]);
+  }, [inView, reduced, animate, scope, delay, variant]);
   return <div ref={scope} className={className}>{children}</div>;
 }
 
