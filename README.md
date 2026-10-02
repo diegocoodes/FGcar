@@ -35,6 +35,8 @@ Para executar as verificações de navegação, layout e acessibilidade em deskt
 
 O WhatsApp fornecido para contato da FCar Garage é +55 11 99839-3642, com link direto para `https://wa.me/5511998393642` e opção de ligação. O Instagram permanece disponível para acompanhar o trabalho. Os dados das avaliações mantêm sua atribuição original.
 
+O formulário de contato solicita nome, veículo e serviço, com detalhes opcionais. Ao continuar, abre o WhatsApp com a mensagem pronta para revisão e envio pelo visitante. Um botão fixo no canto inferior direito mantém acesso ao WhatsApp durante a rolagem.
+
 ## Assets a substituir
 
 O símbolo fornecido em `public/images/logofgcar.png` é usado no cabeçalho e no rodapé, preservando o arquivo, as cores e a proporção. Ele acompanha o nome tipográfico da empresa. Adicione uma versão de maior resolução para usos que exijam ampliação e um arquivo de favicon quando disponível.

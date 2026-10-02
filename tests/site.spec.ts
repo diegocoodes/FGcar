@@ -10,7 +10,7 @@ test("conteúdo, imagens, contato e layout", async ({ page }, testInfo) => {
   await expect(page.locator("h1")).toHaveAccessibleName("FGcar Garage");
   await expect(page.locator(".hero-car img")).toHaveAttribute("src", /hero-car-v2\.webp/);
   await expect(page.locator(".service-item")).toHaveCount(5);
-  const contact = page.getByRole("link", { name: /Conversar no WhatsApp/ });
+  const contact = page.getByRole("link", { name: /Abrir WhatsApp da FGCAR/ });
   await expect(contact).toHaveAttribute("href", "https://wa.me/5511998393642");
   await expect(page.getByRole("link", { name: /\+55 11 99839-3642/ })).toHaveAttribute("href", "tel:+5511998393642");
   await expect(contact).toHaveAttribute("rel", "noopener noreferrer");
@@ -30,6 +30,42 @@ test("conteúdo, imagens, contato e layout", async ({ page }, testInfo) => {
   await page.waitForTimeout(700);
   await page.screenshot({ path: `test-results/hero-${testInfo.project.name}.png` });
   await page.screenshot({ path: `test-results/${testInfo.project.name}.png`, fullPage: true });
+});
+
+test("formulário valida os campos e prepara a mensagem do WhatsApp", async ({ page, context }) => {
+  await context.route("https://wa.me/**", (route) => route.fulfill({ status: 200, contentType: "text/html", body: "<html><body>WhatsApp</body></html>" }));
+  await page.goto("/");
+  const form = page.locator(".contact-form");
+  await page.getByRole("button", { name: /Continuar no WhatsApp/ }).click();
+  await expect(page.getByLabel("Seu nome", { exact: true })).toBeFocused();
+  expect(context.pages()).toHaveLength(1);
+  await page.getByLabel("Seu nome", { exact: true }).fill("  ");
+  expect(await form.evaluate((element) => (element as HTMLFormElement).checkValidity())).toBe(false);
+  await page.getByLabel("Seu nome", { exact: true }).fill("João & Ana");
+  await page.getByLabel("Seu veículo", { exact: true }).fill("Golf 2020");
+  await page.getByLabel("Qual cuidado você procura?").selectOption("Polimento técnico");
+  await page.getByLabel(/Conte um pouco mais/).fill("Marcas na pintura + capô\nQuero um orçamento.");
+  const popupPromise = page.waitForEvent("popup");
+  await page.getByRole("button", { name: /Continuar no WhatsApp/ }).click();
+  const popup = await popupPromise;
+  await popup.waitForLoadState();
+  const url = new URL(popup.url());
+  expect(url.origin + url.pathname).toBe("https://wa.me/5511998393642");
+  expect(url.searchParams.get("text")?.replace(/\r\n/g, "\n")).toBe("Olá, FGCAR Garage! Gostaria de solicitar um orçamento.\nNome: João & Ana\nVeículo: Golf 2020\nServiço: Polimento técnico\nDetalhes: Marcas na pintura + capô\nQuero um orçamento.");
+  await popup.close();
+});
+
+test("botão flutuante de WhatsApp acompanha a rolagem", async ({ page }) => {
+  await page.goto("/");
+  const button = page.getByRole("link", { name: /Abrir WhatsApp da FGCAR/ });
+  await expect(button).toBeVisible();
+  const before = (await button.boundingBox())!;
+  await page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" }));
+  await expect(button).toBeVisible();
+  const after = (await button.boundingBox())!;
+  expect(after.y).toBeCloseTo(before.y, 0);
+  expect(after.x).toBeCloseTo(before.x, 0);
+  await expect(button).toHaveAttribute("href", "https://wa.me/5511998393642");
 });
 
 test("serviços expandem e recolhem pelo teclado", async ({ page }) => {

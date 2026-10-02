@@ -10,6 +10,8 @@ import Testimonial1 from "@/components/ui/testimonial-section-1";
 import { CareCards } from "@/components/care-cards";
 import { ServiceSelectionProvider } from "@/components/service-selection";
 import { AboutPhoto } from "@/components/about-photo";
+import { ContactForm } from "@/components/contact-form";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 export default function Home() {
   return <>
@@ -75,7 +77,7 @@ export default function Home() {
             <p className="contact-card-label">Fale com a FGCAR Garage</p>
             <div className="contact-phone"><a href={site.phoneHref} aria-label={`Ligar para ${site.phone}`}>{site.phone}</a></div>
             <p className="contact-channel">Telefone e WhatsApp</p>
-            <a className="button button-primary contact-button" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />Conversar no WhatsApp<ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a>
+            <ContactForm />
             <div className="contact-links">
               <div className="contact-detail"><MapPin size={18} aria-hidden="true" /><span>{site.location}</span></div>
               <a className="contact-detail" href={site.instagram} target="_blank" rel="noopener noreferrer"><Instagram size={18} aria-hidden="true" /><span>{site.instagramHandle}</span><ArrowUpRight size={14} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a>
@@ -85,6 +87,7 @@ export default function Home() {
         </div>
       </section>
     </main></ServiceSelectionProvider>
+    <WhatsAppButton />
     <footer className="site-footer"><div className="container footer-main"><Brand /><p>Estética automotiva.<br />{site.location}</p><a className="footer-instagram" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram<ArrowUpRight size={17} /><span className="sr-only"> (abre em uma nova aba)</span></a><a className="back-top" href="#inicio">Voltar ao início<ArrowUpRight size={17} /></a></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Fotografias ilustrativas.</span></div></footer>
   </>;
 }
