@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Instagram, MapPin, MessageCircle } from "lucide-react";
 import { Header } from "@/components/header";
 import { Brand } from "@/components/brand";
 import { HeroEntrance, Photo, Reveal } from "@/components/animation";
@@ -65,20 +65,22 @@ export default function Home() {
 
       <section className="contact-section section-space" id="contato" tabIndex={-1} aria-labelledby="contact-title">
         <div className="container">
-          <Reveal className="contact-layout">
-            <div className="contact-copy">
+          <Reveal className="contact-heading">
               <p className="eyebrow">Seu próximo cuidado</p>
-              <h2 id="contact-title">Seu carro merece<br /><span>esse cuidado.</span></h2>
-              <p className="contact-description">Conte qual é o seu veículo e o que você procura. Nossa equipe ajuda a escolher o tratamento para o seu carro.</p>
-              <a className="button button-primary contact-button" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />Conversar no WhatsApp<ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a>
-              <p className="contact-note">Um cuidado de cada vez. Comece com uma conversa.</p>
+              <h2 id="contact-title">O próximo cuidado<br /><span>começa aqui.</span></h2>
+              <p className="contact-description">Conte qual é o seu carro e o que você procura. A gente ajuda você a escolher o tratamento.</p>
+          </Reveal>
+          <Reveal className="contact-layout">
+            <span className="contact-icon" aria-hidden="true"><MessageCircle size={30} /></span>
+            <p className="contact-card-label">Fale com a FGCAR Garage</p>
+            <div className="contact-phone"><a href={site.phoneHref} aria-label={`Ligar para ${site.phone}`}>{site.phone}</a></div>
+            <p className="contact-channel">Telefone e WhatsApp</p>
+            <a className="button button-primary contact-button" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />Conversar no WhatsApp<ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a>
+            <div className="contact-links">
+              <div className="contact-detail"><MapPin size={18} aria-hidden="true" /><span>{site.location}</span></div>
+              <a className="contact-detail" href={site.instagram} target="_blank" rel="noopener noreferrer"><Instagram size={18} aria-hidden="true" /><span>{site.instagramHandle}</span><ArrowUpRight size={14} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a>
             </div>
-            <div className="contact-details">
-              <div className="contact-card-heading"><span className="contact-icon" aria-hidden="true"><MessageCircle size={25} /></span><div><p>Vamos conversar?</p><span>Fale com a FGCAR Garage</span></div></div>
-              <div className="contact-detail contact-phone"><Phone size={19} aria-hidden="true" /><div><span>Telefone e WhatsApp</span><a href={site.phoneHref}>{site.phone}<ArrowUpRight size={17} aria-hidden="true" /></a></div></div>
-              <div className="contact-detail"><MapPin size={19} aria-hidden="true" /><div><span>Encontre a FCar</span><p>{site.location}</p></div></div>
-              <div className="contact-detail"><Instagram size={19} aria-hidden="true" /><div><span>Acompanhe nosso trabalho</span><a href={site.instagram} target="_blank" rel="noopener noreferrer">{site.instagramHandle}<ArrowUpRight size={16} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a></div></div>
-            </div>
+            <p className="contact-note">Pintura, proteção e acabamento. Um cuidado de cada vez.</p>
           </Reveal>
         </div>
       </section>
