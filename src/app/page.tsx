@@ -37,8 +37,18 @@ export default function Home() {
 
       <section className="services-section section-space" id="servicos" tabIndex={-1} aria-labelledby="services-title">
         <div className="container">
-          <Reveal className="section-heading"><div><p className="eyebrow">Nossos serviços</p><h2 id="services-title">O cuidado certo.<br /><span className="muted">Para cada superfície.</span></h2></div><p className="section-intro">Da pintura aos vidros, cada tratamento tem uma função. Conheça as opções para o seu carro.</p></Reveal>
-          <div className="services-layout"><Reveal className="services-visual"><ServicePreview /></Reveal><Reveal><Services /></Reveal></div>
+          <div className="services-layout">
+            <Reveal className="services-visual"><ServicePreview /></Reveal>
+            <Reveal className="services-about">
+              <h3>Cuidado em cada detalhe</h3>
+              <p>Da pintura aos vidros, cada superfície merece atenção. Na FCar Garage, reunimos tratamentos de estética automotiva para recuperar o acabamento, valorizar o brilho e ajudar a proteger o seu carro no dia a dia.</p>
+              <h4>O acabamento começa no cuidado.</h4>
+              <p>Polimento, vitrificação, PPF e películas: nossa equipe avalia o seu veículo e orienta a escolha do serviço de acordo com o estado do carro e a sua rotina.</p>
+            </Reveal>
+          </div>
+          <div className="services-divider" aria-hidden="true" />
+          <Reveal className="services-heading"><h2 id="services-title">Nossos serviços</h2><p>Proteção, brilho e acabamento para cada superfície.</p></Reveal>
+          <Reveal><Services /></Reveal>
         </div>
       </section>
 
