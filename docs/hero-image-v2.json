@@ -1,0 +1,8 @@
+{
+  "generator": "Built-in image_gen tool",
+  "reference": "Imagem enviada pelo usuário: composição central, letras grandes ao fundo e carro em primeiro plano.",
+  "asset": "public/images/hero-car-v2.webp",
+  "purpose": "Carro ilustrativo com transparência para a seção hero da FCar Garage.",
+  "prompt": "Use case: photorealistic-natural. Asset type: transparent automotive cutout for the hero of FCar Garage, a black and red car detailing website. Use the attached image only as a reference for the car's viewing angle and central composition. Generate ONLY one realistic glossy deep carmine red Porsche 911 GT3 style sports coupe, seen from a low front three-quarter angle, the front of the car pointing to the RIGHT, rear wing at the LEFT. Full car, all tires and mirrors visible, accurate proportions, low wide stance, black multi-spoke wheels, black glass and a subtle black front splitter. Carefully controlled white studio reflections on the hood and fenders emphasize clean paint. The car must be crisply separated from a genuinely transparent alpha background, with only a very soft close contact shadow beneath the tires. Wide landscape framing, tightly framed around the complete car, minimal empty space. No scene, horizon, floor plane, garage, showroom, colored background, text, letters, logo, license-plate lettering, watermark, graphic design or pink color. Do not reproduce the reference website or its typography. The image is an illustrative car asset, not a photo of a customer or a completed business job."
+}
+

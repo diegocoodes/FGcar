@@ -1,0 +1,32 @@
+{
+  "generator": "Built-in image_gen tool",
+  "purpose": "Imagens ilustrativas para os serviços, sem representar trabalhos executados pela empresa.",
+  "assets": [
+    {
+      "key": "vitrificacao",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 3:2 illustrative service photo for a black and red automotive detailing website, full-size in an accessible image dialog. Style: realistic editorial automotive workshop photography with natural textures, subtle depth of field, precise hands and tools, soft neutral workshop lights, understated red accents in the background, black or dark graphite vehicle. Close composition focused on the treatment. No text, logo, watermark, comparison labels, collage or decorative graphics. This is an illustrative fictional scene, not a portfolio claim.\nPrimary request: Ceramic coating application to the glossy dark bonnet of a car. A detailer's hand in a black nitrile glove holds a small rectangular foam applicator wrapped in a suede cloth flat against the paint. Clean white ceiling light reflections show the polished paint. Not spraying water or polishing with a machine.",
+      "path": "public/images/services/vitrificacao.webp"
+    },
+    {
+      "key": "ppf",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 3:2 illustrative service photo for a black and red automotive detailing website, full-size in an accessible image dialog. Style: realistic editorial automotive workshop photography with natural textures, subtle depth of field, precise hands and tools, soft neutral workshop lights, understated red accents in the background, black or dark graphite vehicle. Close composition focused on the treatment. No text, logo, watermark, comparison labels, collage or decorative graphics. This is an illustrative fictional scene, not a portfolio claim.\nPrimary request: Paint protection film installation on a car's dark painted front fender. A clear flexible protective film is visibly lifted along its edge with a few wet application droplets underneath. A black-gloved hand uses a small red rubber squeegee to smooth the transparent film onto the painted panel. Show clearly that the film is on body paint, not glass.",
+      "path": "public/images/services/ppf.webp"
+    },
+    {
+      "key": "polimento",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 3:2 illustrative service photo for a black and red automotive detailing website, full-size in an accessible image dialog. Style: realistic editorial automotive workshop photography with natural textures, subtle depth of field, precise hands and tools, soft neutral workshop lights, understated red accents in the background, black or dark graphite vehicle. Close composition focused on the treatment. No text, logo, watermark, comparison labels, collage or decorative graphics. This is an illustrative fictional scene, not a portfolio claim.\nPrimary request: Technical car paint polishing. A detailer's black-gloved hands use a realistic dual action electric polisher with a circular foam polishing pad pressed flat onto a dark car bonnet. Subtle reflections reveal glossy paint. The cord and grip are mechanically plausible. No sparks, no sanding and no spray.",
+      "path": "public/images/services/polimento.webp"
+    },
+    {
+      "key": "insulfilm",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 3:2 illustrative service photo for a black and red automotive detailing website, full-size in an accessible image dialog. Style: realistic editorial automotive workshop photography with natural textures, subtle depth of field, precise hands and tools, soft neutral workshop lights, understated red accents in the background, black or dark graphite vehicle. Close composition focused on the treatment. No text, logo, watermark, comparison labels, collage or decorative graphics. This is an illustrative fictional scene, not a portfolio claim.\nPrimary request: Installation of automotive window tint on a car's intact side window. Dark translucent tint film is partially applied to the glass; a black-gloved hand works a small red squeegee over it. Visible frame and part of the door clarify this is automotive glass. Realistic workshop lighting, no damaged glass.",
+      "path": "public/images/services/insulfilm.webp"
+    },
+    {
+      "key": "antivandalismo",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 3:2 illustrative service photo for a black and red automotive detailing website, full-size in an accessible image dialog. Style: realistic editorial automotive workshop photography with natural textures, subtle depth of field, precise hands and tools, soft neutral workshop lights, understated red accents in the background, black or dark graphite vehicle. Close composition focused on the treatment. No text, logo, watermark, comparison labels, collage or decorative graphics. This is an illustrative fictional scene, not a portfolio claim.\nPrimary request: Close illustrative demonstration of transparent safety window film on an automotive side window specimen in a workshop. The framed tempered car window has cracked into small fragments, but the fragments remain contained together by a visibly continuous clear safety film layer, and the outline stays intact. A small lifted clear film corner in the foreground makes the layer legible. No loose flying shards, no violence, weapons, attack, bullet holes, people or suggestion of bulletproof glass.",
+      "path": "public/images/services/antivandalismo.webp"
+    }
+  ]
+}
+
