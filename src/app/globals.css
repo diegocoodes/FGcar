@@ -102,37 +102,41 @@ section:focus, main:focus { outline: none; }
 h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1.05; font-weight: 700; }
 .muted { color: var(--metal); }
 .section-intro { max-width: 322px; font-size: 15px; line-height: 1.8; color: var(--muted); padding-bottom: 4px; }
-.services-section { background: #000; }
-.services-layout { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(40px, 6vw, 86px); align-items: center; }
-.services-about h3 { font-size: clamp(24px, 2.6vw, 36px); line-height: 1.15; text-transform: uppercase; margin-bottom: 22px; }
-.services-about p { font-size: 14px; line-height: 1.85; color: #b5b5b5; max-width: 470px; }
-.services-about h4 { font-size: 16px; font-weight: 700; margin: 30px 0 12px; }
-.services-divider { height: clamp(28px, 4.5vw, 60px); margin-block: 64px 38px; background: linear-gradient(100deg, #ff3340, #e00010); border-radius: 70px 24px 0 0; transform: skewX(-15deg); width: calc(100% - 16px); margin-inline: auto; }
+.services-section { background: #000; padding-block: 80px 100px; }
+.services-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.services-about .eyebrow { color: #ff5969; font-size: 10px; margin-bottom: 16px; }
+.services-about h2 { font-size: clamp(38px, 4vw, 56px); text-transform: uppercase; line-height: 1; margin-bottom: 24px; }
+.services-about p { font-size: 14px; line-height: 1.8; color: #b5b5b5; max-width: 440px; }
+.services-about h3 { font-size: 16px; line-height: 1.4; font-weight: 600; margin: 26px 0 10px; }
+.services-about .text-link { margin-top: 16px; font-size: 12px; }
+.services-about .text-link svg { color: #ff5969; }
+.services-divider { height: clamp(24px, 3.5vw, 46px); margin-block: 58px 32px; background: linear-gradient(100deg, #ff3340, #e00010); border-radius: 60px 18px 0 0; transform: skewX(-15deg); width: calc(100% - 16px); margin-inline: auto; }
 .services-heading { text-align: center; margin-bottom: 42px; }
 .services-heading h2 { font-size: clamp(28px, 3vw, 42px); text-transform: uppercase; letter-spacing: 0; }
 .services-heading p { color: var(--muted); margin-top: 14px; font-size: 14px; line-height: 1.7; }
-.services-section .services-list { max-width: 960px; margin-inline: auto; }
+.services-section .services-list { max-width: 1100px; margin-inline: auto; }
 .service-preview { margin: 0; scroll-margin-top: 110px; }
 .service-photo-layer { position: absolute; inset: 0; }
 .service-preview-note { margin-left: auto; font-size: 10px; color: var(--muted); }
-.service-photo { height: auto; aspect-ratio: 1.45; border-radius: 0 28px 28px 0; clip-path: polygon(0 0, 100% 0, 87% 100%, 0 100%); background: #202528; }
-.service-preview[data-initial="true"] .service-photo { background: linear-gradient(180deg, #5f6b6e 0%, #293236 48%, #171c1e 49%, #475052 100%); }
-.service-preview[data-initial="true"] .service-photo img { object-fit: contain; object-position: 40% 55%; padding: 25px 42px 25px 6px; }
+.service-photo { height: auto; aspect-ratio: 1.5; border-radius: 0 26px 26px 0; clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%); background: #202528; }
 .services-section .photo-caption { font-size: 11px; padding-top: 12px; }
 .service-photo img { object-position: 56% center; }
 .photo-caption { display: flex; align-items: center; gap: 22px; padding-top: 20px; color: #a6aaad; font-size: 12px; }
 .services-list { border-top: 1px solid var(--border); }
 .service-item { border-bottom: 1px solid var(--border); transition: background-color 300ms ease-out; }
 .service-item:hover, .service-item[open] { background: rgb(255 255 255 / 2%); }
-.service-item summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; list-style: none; cursor: pointer; padding: 24px 0; }
+.service-item summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; list-style: none; cursor: pointer; padding: 28px 12px; }
+.service-number { color: #ff5969; font-size: 12px; font-weight: 500; min-width: 28px; }
+.service-summary-copy { display: grid; grid-template-columns: 1fr 1.1fr; gap: 30px; align-items: center; flex: 1; }
 .service-item summary::-webkit-details-marker { display: none; }
 .service-item summary h3 { font-size: 30px; line-height: 1.1; font-weight: 600; letter-spacing: -0.3px; transition: color 250ms ease-out; }
-.service-item summary p { font-size: 14px; line-height: 1.6; color: var(--muted); margin-top: 9px; }
-.service-plus { color: var(--metal); transition: transform 250ms ease-out, color 250ms ease-out; }
+.service-item summary p { font-size: 14px; line-height: 1.6; color: var(--muted); }
+.service-plus { color: #e4e4e4; transition: transform 250ms ease-out, color 250ms ease-out; }
 .service-item[open] .service-plus { transform: rotate(45deg); color: var(--red); }
 .service-item[open] h3, .service-item[data-selected="true"] h3, .service-item summary:hover h3 { color: var(--red); }
 .service-detail { overflow: hidden; }
-.service-detail p { font-size: 14px; color: #bec2c5; line-height: 1.8; padding-right: 35px; }
+.service-detail p { font-size: 14px; color: #bec2c5; line-height: 1.8; padding-right: 35px; max-width: 760px; }
+.services-section .service-detail { padding-inline: 64px 12px; }
 .service-detail .text-link { padding-block: 16px 23px; font-size: 12px; }
 .text-link { display: inline-flex; align-items: center; gap: 12px; line-height: 1.5; min-height: 44px; font-size: 13px; font-weight: 500; }
 .text-link:hover { color: var(--red); }
@@ -266,14 +270,18 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
   h2 { font-size: 42px; letter-spacing: -0.5px; }
   .section-intro { max-width: 430px; font-size: 14px; }
   .services-layout { grid-template-columns: 1fr; gap: 32px; }
-  .services-about h3 { font-size: 26px; margin-bottom: 16px; }
-  .services-about h4 { margin-top: 24px; }
+  .services-section { padding-block: 48px 64px; }
+  .services-about h2 { font-size: 40px; margin-bottom: 20px; }
+  .services-about h3 { font-size: 16px; margin-top: 24px; }
   .services-divider { margin-block: 38px 28px; }
   .services-heading { margin-bottom: 28px; }
   .service-photo { height: auto; aspect-ratio: 1.4; }
   .service-photo img { object-position: 50% 58%; }
   .photo-caption { padding-top: 14px; font-size: 10px; }
-  .service-item summary { padding-block: 22px; gap: 20px; }
+  .service-item summary { padding: 22px 0; gap: 14px; }
+  .service-number { min-width: 22px; align-self: flex-start; padding-top: 6px; }
+  .service-summary-copy { grid-template-columns: 1fr; gap: 8px; }
+  .services-section .service-detail { padding-inline: 36px 0; }
   .service-item summary h3 { font-size: 28px; }
   .service-item summary p { font-size: 13px; max-width: 330px; }
   .service-detail p { padding-right: 0; }

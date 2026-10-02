@@ -6,7 +6,7 @@ import { Plus } from "lucide-react";
 import { services } from "@/config/site";
 import { useServiceSelection } from "@/components/service-selection";
 
-function Service({ service }: { service: (typeof services)[number] }) {
+function Service({ service, index }: { service: (typeof services)[number]; index: number }) {
   const details = useRef<HTMLDetailsElement>(null);
   const busy = useRef(false);
   const pendingToggle = useRef(false);
@@ -46,9 +46,9 @@ function Service({ service }: { service: (typeof services)[number] }) {
     }
   }
 
-  return <details ref={details} className="service-item" id={service.id} data-selected={selectedService?.id === service.id} data-stagger><summary aria-controls="service-preview" onClick={(event) => void toggle(event)}><div><h3>{service.name}</h3><p>{service.description}</p></div><Plus className="service-plus" size={22} aria-hidden="true" /></summary><div ref={scope} className="service-detail"><p>{service.detail}</p><a className="text-link" href="#contato">Consultar sobre este serviço<span aria-hidden="true">↗</span></a></div></details>;
+  return <details ref={details} className="service-item" id={service.id} data-selected={selectedService?.id === service.id} data-stagger><summary aria-controls="service-preview" onClick={(event) => void toggle(event)}><span className="service-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><div className="service-summary-copy"><h3>{service.name}</h3><p>{service.description}</p></div><Plus className="service-plus" size={22} aria-hidden="true" /></summary><div ref={scope} className="service-detail"><p>{service.detail}</p><a className="text-link" href="#contato">Consultar sobre este serviço<span aria-hidden="true">↗</span></a></div></details>;
 }
 
 export function Services() {
-  return <div className="services-list">{services.map((service) => <Service key={service.id} service={service} />)}</div>;
+  return <div className="services-list">{services.map((service, index) => <Service key={service.id} service={service} index={index} />)}</div>;
 }

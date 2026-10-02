@@ -40,14 +40,16 @@ export default function Home() {
           <div className="services-layout">
             <Reveal className="services-visual"><ServicePreview /></Reveal>
             <Reveal className="services-about">
-              <h3>Cuidado em cada detalhe</h3>
-              <p>Da pintura aos vidros, cada superfície merece atenção. Na FCar Garage, reunimos tratamentos de estética automotiva para recuperar o acabamento, valorizar o brilho e ajudar a proteger o seu carro no dia a dia.</p>
-              <h4>O acabamento começa no cuidado.</h4>
-              <p>Polimento, vitrificação, PPF e películas: nossa equipe avalia o seu veículo e orienta a escolha do serviço de acordo com o estado do carro e a sua rotina.</p>
+              <p className="eyebrow">Sobre a FCar Garage</p>
+              <h2>Seu carro.<br />Nosso cuidado.</h2>
+              <p>O brilho chama atenção. O cuidado faz a diferença. Da pintura aos vidros, tratamos cada superfície para valorizar o acabamento do seu carro.</p>
+              <h3>Um tratamento para cada necessidade.</h3>
+              <p>Avaliamos o veículo e ajudamos você a escolher a proteção e o acabamento que combinam com a sua rotina.</p>
+              <a className="text-link" href="#contato">Converse com a nossa equipe<ArrowUpRight size={16} aria-hidden="true" /></a>
             </Reveal>
           </div>
           <div className="services-divider" aria-hidden="true" />
-          <Reveal className="services-heading"><h2 id="services-title">Nossos serviços</h2><p>Proteção, brilho e acabamento para cada superfície.</p></Reveal>
+          <Reveal className="services-heading"><h2 id="services-title">Nossos serviços</h2><p>Escolha um serviço e descubra o cuidado por trás de cada detalhe.</p></Reveal>
           <Reveal><Services /></Reveal>
         </div>
       </section>

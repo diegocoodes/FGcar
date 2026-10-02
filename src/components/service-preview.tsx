@@ -10,7 +10,7 @@ type PreviewPhoto = { id: string; name: string; image: { src: string; alt: strin
 const initialPhoto: PreviewPhoto = {
   id: "detail",
   name: "O acabamento começa no cuidado.",
-  image: { src: "/images/hero-car-v2.webp", alt: "Carro esportivo vermelho com pintura brilhante, imagem ilustrativa" },
+  image: { src: "/images/services-garage.webp", alt: "Carro esportivo vermelho em uma garagem de estética automotiva, imagem ilustrativa" },
 };
 const sizes = "(max-width: 767px) 90vw, (max-width: 1400px) 50vw, 700px";
 
@@ -31,7 +31,7 @@ export function ServicePreview() {
   const changing = next.id !== displayed.id;
 
   return (
-    <figure id="service-preview" className="service-preview" data-initial={displayed.id === "detail"}>
+    <figure id="service-preview" className="service-preview">
       <Photo className="service-photo">
         <div className="service-photo-layer" aria-hidden={changing ? true : undefined}>
           <Image src={displayed.image.src} alt={displayed.image.alt} fill sizes={sizes} quality={80} />
