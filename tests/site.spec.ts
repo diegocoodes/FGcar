@@ -73,14 +73,17 @@ test("imagem do sobre permanece fixa ao selecionar serviços e cards", async ({ 
   }
   for (const card of [
     { title: "Recuperar o acabamento", id: "polimento" },
-    { title: "Facilitar a conservação", id: "vitrificacao" },
     { title: "Proteger a pintura", id: "ppf" },
     { title: "Cuidar dos vidros", id: "insulfilm" },
   ]) {
-    await page.locator(".care-item").filter({ has: page.getByRole("heading", { name: card.title }) }).click();
+    await page.locator(".care-item").filter({ has: page.getByRole("heading", { name: card.title }) }).locator(".care-action").click();
     await expect(page.locator(`#${card.id} summary`)).toBeFocused();
     await expect(image).toHaveAttribute("src", originalSource!);
   }
+  await page.getByRole("link", { name: "Conhecer a vitrificação" }).click();
+  await expect(page.locator("#vitrificacao summary")).toBeFocused();
+  await expect(image).toHaveAttribute("src", originalSource!);
+  await page.locator("#cuidados").screenshot({ path: `test-results/care-${testInfo.project.name}.png` });
   await page.locator(".services-layout").screenshot({ path: `test-results/about-${testInfo.project.name}.png` });
   const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
   expect(results.violations).toEqual([]);

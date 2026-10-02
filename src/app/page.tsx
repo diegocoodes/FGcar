@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       <section className="care-section section-space" id="cuidados" tabIndex={-1} aria-labelledby="care-title"><div className="container">
-        <Reveal className="section-heading"><div><p className="eyebrow">Cuidados com o veículo</p><h2 id="care-title">O que seu carro<br />precisa hoje?</h2></div><p className="section-intro">O uso, o estado da pintura e a sua rotina ajudam a escolher o tratamento. A indicação depende da avaliação da nossa equipe.</p></Reveal>
+        <Reveal className="care-heading"><p className="eyebrow">Cuidados com seu carro</p><h2 id="care-title">O cuidado que seu<br /><span>carro merece.</span></h2><p>Brilho, proteção e conforto. Encontre o cuidado para o seu dia a dia.</p></Reveal>
         <Reveal className="care-grid"><CareCards /></Reveal>
         <Reveal className="care-note"><p>Na dúvida, conte como você usa seu carro. A gente ajuda a escolher.</p><a className="text-link" href="#contato">Fale com a FCar<ArrowUpRight size={16} /></a></Reveal>
       </div></section>
