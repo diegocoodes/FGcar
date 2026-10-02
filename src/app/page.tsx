@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, Instagram, MapPin } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Header } from "@/components/header";
 import { Brand } from "@/components/brand";
 import { HeroEntrance, Photo, Reveal } from "@/components/animation";
@@ -63,7 +63,25 @@ export default function Home() {
 
       <Testimonial1 />
 
-      <section className="contact-section section-space" id="contato" tabIndex={-1} aria-labelledby="contact-title"><div className="container"><Reveal className="contact-layout"><div><p className="eyebrow">Seu próximo cuidado</p><h2 id="contact-title">Vamos cuidar<br />do seu carro<span className="red-text">?</span></h2><p className="contact-description">Conte qual é o seu veículo<br />e o serviço que você procura.</p><a className="button button-primary contact-button" href={site.instagram} target="_blank" rel="noopener noreferrer">Conversar no Instagram<ArrowUpRight size={19} /><span className="sr-only"> (abre em uma nova aba)</span></a></div><div className="contact-details"><div className="contact-detail"><MapPin size={20} aria-hidden="true" /><div><span>Encontre a FCar</span><p>{site.location}</p></div></div><div className="contact-detail"><Instagram size={20} aria-hidden="true" /><div><span>Acompanhe no Instagram</span><a href={site.instagram} target="_blank" rel="noopener noreferrer">{site.instagramHandle}<ArrowUpRight size={16} /><span className="sr-only"> (abre em uma nova aba)</span></a></div></div><p className="contact-note">Pintura, proteção e acabamento.<br />Um cuidado de cada vez.</p></div></Reveal></div></section>
+      <section className="contact-section section-space" id="contato" tabIndex={-1} aria-labelledby="contact-title">
+        <div className="container">
+          <Reveal className="contact-layout">
+            <div className="contact-copy">
+              <p className="eyebrow">Seu próximo cuidado</p>
+              <h2 id="contact-title">Seu carro merece<br /><span>esse cuidado.</span></h2>
+              <p className="contact-description">Conte qual é o seu veículo e o que você procura. Nossa equipe ajuda a escolher o tratamento para o seu carro.</p>
+              <a className="button button-primary contact-button" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />Conversar no WhatsApp<ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a>
+              <p className="contact-note">Um cuidado de cada vez. Comece com uma conversa.</p>
+            </div>
+            <div className="contact-details">
+              <div className="contact-card-heading"><span className="contact-icon" aria-hidden="true"><MessageCircle size={25} /></span><div><p>Vamos conversar?</p><span>Fale com a FGCAR Garage</span></div></div>
+              <div className="contact-detail contact-phone"><Phone size={19} aria-hidden="true" /><div><span>Telefone e WhatsApp</span><a href={site.phoneHref}>{site.phone}<ArrowUpRight size={17} aria-hidden="true" /></a></div></div>
+              <div className="contact-detail"><MapPin size={19} aria-hidden="true" /><div><span>Encontre a FCar</span><p>{site.location}</p></div></div>
+              <div className="contact-detail"><Instagram size={19} aria-hidden="true" /><div><span>Acompanhe nosso trabalho</span><a href={site.instagram} target="_blank" rel="noopener noreferrer">{site.instagramHandle}<ArrowUpRight size={16} aria-hidden="true" /><span className="sr-only"> (abre em uma nova aba)</span></a></div></div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </main></ServiceSelectionProvider>
     <footer className="site-footer"><div className="container footer-main"><Brand /><p>Estética automotiva.<br />{site.location}</p><a className="footer-instagram" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram<ArrowUpRight size={17} /><span className="sr-only"> (abre em uma nova aba)</span></a><a className="back-top" href="#inicio">Voltar ao início<ArrowUpRight size={17} /></a></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Fotografias ilustrativas.</span></div></footer>
   </>;

@@ -10,11 +10,12 @@ test("conteúdo, imagens, contato e layout", async ({ page }, testInfo) => {
   await expect(page.locator("h1")).toHaveAccessibleName("FGcar Garage");
   await expect(page.locator(".hero-car img")).toHaveAttribute("src", /hero-car-v2\.webp/);
   await expect(page.locator(".service-item")).toHaveCount(5);
-  const contact = page.getByRole("link", { name: /Conversar no Instagram/ });
-  await expect(contact).toHaveAttribute("href", "https://www.instagram.com/fcargarage_/");
+  const contact = page.getByRole("link", { name: /Conversar no WhatsApp/ });
+  await expect(contact).toHaveAttribute("href", "https://wa.me/5511998393642");
+  await expect(page.getByRole("link", { name: /\+55 11 99839-3642/ })).toHaveAttribute("href", "tel:+5511998393642");
   await expect(contact).toHaveAttribute("rel", "noopener noreferrer");
   await expect(page.locator("body")).not.toContainText(/[—–]/);
-  await expect(page.locator("body")).not.toContainText(" - ");
+  expect(await page.locator("main p, main h1, main h2, main h3").evaluateAll((elements) => elements.some((element) => /\s-\s/.test(element.textContent ?? "")))).toBe(false);
   await expect(page.locator(".red-line")).toHaveCount(0);
   await page.locator(".service-photo").scrollIntoViewIfNeeded();
   await page.locator("#avaliacoes").scrollIntoViewIfNeeded();

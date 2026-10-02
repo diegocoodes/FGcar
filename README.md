@@ -33,7 +33,7 @@ Para executar as verificações de navegação, layout e acessibilidade em deskt
 - `src/components/`: menu acessível, animações progressivas e expansão dos serviços.
 - `public/images/`: fotografias ilustrativas locais.
 
-O Instagram fornecido é o canal de contato da FCar Garage. O telefone e o endereço informados para a FG Car constam do perfil de referência das avaliações. Não foi informado um número de WhatsApp.
+O WhatsApp fornecido para contato da FCar Garage é +55 11 99839-3642, com link direto para `https://wa.me/5511998393642` e opção de ligação. O Instagram permanece disponível para acompanhar o trabalho. Os dados das avaliações mantêm sua atribuição original.
 
 ## Assets a substituir
 

@@ -165,7 +165,7 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
 .care-note { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 24px; margin-top: 48px; }
 .care-note p { color: #b7babe; font-size: 13px; line-height: 1.6; }
 .care-note .text-link { white-space: nowrap; }
-.contact-section { padding-block: 114px 120px; background: radial-gradient(ellipse at 82% 45%, #17191b 0, var(--background) 58%); }
+.contact-section { padding-block: 90px; background: radial-gradient(ellipse at 75% 50%, #260c13 0, var(--background) 65%); }
 .reviews-section { border-bottom: 1px solid var(--border); }
 .reviews-summary { min-width: 300px; }
 .reviews-score { display: flex; align-items: center; gap: 12px; }
@@ -193,20 +193,27 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
 .testimonial-name[href]:hover { color: var(--red); text-decoration: underline; text-underline-offset: 4px; }
 .testimonial-source { display: block; font-size: 12px; color: var(--muted); margin-top: 3px; }
 .reviews-footnote { font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 22px; }
-.contact-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 90px; align-items: center; }
-.contact-layout .eyebrow { color: #bec1c3; margin-bottom: 25px; }
-.contact-layout h2 { font-size: clamp(56px, 6vw, 84px); letter-spacing: -1px; line-height: 1.02; }
+.contact-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: center; padding: 58px; border: 1px solid #4a222b; border-radius: 24px; background: radial-gradient(ellipse at 0% 0%, rgb(237 36 56 / 12%), transparent 55%), #100c0e; box-shadow: 0 24px 80px rgb(237 36 56 / 8%); }
+.contact-layout .eyebrow { color: #e2bec5; margin-bottom: 22px; }
+.contact-layout h2 { font-size: clamp(38px, 4.5vw, 62px); letter-spacing: -1px; line-height: 1.08; }
+.contact-layout h2 span { color: #ff5969; }
 .red-text { color: var(--red); }
-.contact-description { font-size: 16px; line-height: 1.8; color: var(--muted); margin-top: 25px; }
-.contact-button { margin-top: 28px; }
-.contact-details { border-left: 1px solid var(--border); padding-left: 54px; margin-top: 33px; }
-.contact-detail { display: flex; gap: 19px; margin-bottom: 35px; }
-.contact-detail > svg { color: var(--red); margin-top: 2px; }
-.contact-detail span { display: block; font-size: 12px; color: #9fa5a9; margin-bottom: 9px; }
+.contact-description { font-size: 15px; line-height: 1.8; color: #bfb2b7; margin-top: 22px; max-width: 420px; }
+.contact-button { margin-top: 28px; border-radius: 999px; padding: 17px 24px; gap: 12px; font-size: 13px; box-shadow: 0 8px 32px rgb(237 36 56 / 22%); }
+.contact-details { border: 1px solid #6b2b36; padding: 30px; border-radius: 16px; background: radial-gradient(ellipse at 100% 0%, rgb(237 36 56 / 35%), transparent 55%), radial-gradient(ellipse at 0% 100%, rgb(237 36 56 / 20%), transparent 55%), #171014; }
+.contact-card-heading { display: flex; align-items: center; gap: 14px; padding-bottom: 26px; margin-bottom: 26px; border-bottom: 1px solid #65303c; }
+.contact-card-heading p { font-size: 20px; font-weight: 600; }
+.contact-card-heading span:not(.contact-icon) { display: block; font-size: 12px; color: #e4c2ca; margin-top: 5px; }
+.contact-icon { display: grid; place-items: center; flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; color: #a50e25; background: #f8e9ed; }
+.contact-detail { display: flex; gap: 14px; margin-bottom: 26px; }
+.contact-detail:last-child { margin-bottom: 0; }
+.contact-detail > svg { color: #ff7f8e; margin-top: 2px; }
+.contact-detail span { display: block; font-size: 12px; color: #d0abb5; margin-bottom: 8px; }
 .contact-detail p, .contact-detail a { font-size: 17px; line-height: 1.5; }
-.contact-detail a { display: inline-flex; align-items: center; gap: 16px; min-height: 30px; }
-.contact-detail a:hover { color: var(--red); }
-.contact-note { margin-top: 45px; color: var(--metal); font-size: 13px; line-height: 1.75; }
+.contact-detail a { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 30px; overflow-wrap: anywhere; }
+.contact-detail a:hover { color: #ff7f8e; }
+.contact-phone a { font-size: clamp(17px, 1.6vw, 22px); font-weight: 600; }
+.contact-note { margin-top: 20px; color: #bfb2b7; font-size: 12px; line-height: 1.75; }
 .site-footer { border-top: 1px solid var(--border); }
 .footer-main { display: flex; align-items: center; gap: 64px; padding-block: 37px; }
 .footer-main p { font-size: 12px; line-height: 1.75; color: #969c9f; }
@@ -239,8 +246,8 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
   .services-layout { gap: 45px; }
   .desktop-nav { gap: 44px; }
   .service-photo { height: auto; }
-  .contact-layout { gap: 45px; }
-  .contact-details { padding-left: 35px; }
+  .contact-layout { gap: 28px; padding: 36px; grid-template-columns: 1fr 1fr; }
+  .contact-details { padding: 24px; }
   .care-grid { gap: 16px; }
   .care-action { padding-inline: 20px; }
   .testimonials-grid { grid-template-columns: 1fr 1fr; }
@@ -301,7 +308,8 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
   .care-item:nth-child(2) { margin-top: 0; }
   .care-action { min-height: 220px; padding: 26px; }
   .care-note { margin-top: 32px; text-align: center; }
-  .contact-layout { grid-template-columns: 1fr; gap: 42px; }
+  .contact-section { padding-block: 56px; }
+  .contact-layout { grid-template-columns: 1fr; gap: 32px; padding: 28px 20px; border-radius: 18px; }
   .reviews-summary { min-width: 0; width: 100%; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 14px; }
   .testimonial-card { padding: 25px; }
@@ -309,10 +317,11 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
   .testimonial-card:last-child { grid-column: auto; }
   .testimonial-card blockquote p { font-size: 18px; }
   .testimonial-featured blockquote p { font-size: 23px; }
-  .contact-layout h2 { font-size: 58px; letter-spacing: -0.8px; }
+  .contact-layout h2 { font-size: clamp(32px, 8vw, 48px); letter-spacing: -0.8px; }
   .contact-layout .eyebrow { margin-bottom: 24px; }
   .contact-description { font-size: 15px; }
-  .contact-details { border-left: 0; border-top: 1px solid var(--border); padding-left: 0; padding-top: 30px; margin-top: 0; }
+  .contact-details { padding: 22px 18px; }
+  .contact-button { width: 100%; justify-content: center; padding-inline: 12px; font-size: 12px; }
   .contact-detail { margin-bottom: 26px; }
   .contact-note { margin-top: 25px; }
   .footer-main { flex-wrap: wrap; gap: 24px; padding-block: 30px; }
@@ -326,7 +335,7 @@ h2 { font-size: clamp(44px, 4.3vw, 60px); letter-spacing: -0.8px; line-height: 1
 @media (max-width: 359px) {
   .hero h1 { font-size: 106px; }
   .care-grid { grid-template-columns: 1fr; }
-  .contact-layout h2 { font-size: 52px; }
+  .contact-layout h2 { font-size: 30px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

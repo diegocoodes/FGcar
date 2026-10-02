@@ -3,6 +3,9 @@ export const site = {
   location: "Santo André, SP",
   instagram: "https://www.instagram.com/fcargarage_/",
   instagramHandle: "@fcargarage_",
+  phone: "+55 11 99839-3642",
+  phoneHref: "tel:+5511998393642",
+  whatsapp: "https://wa.me/5511998393642",
   title: "FCar Garage | Estética automotiva em Santo André",
   description:
     "Conheça os serviços de vitrificação, PPF, polimento técnico e películas da FCar Garage em Santo André, SP. Entre em contato e solicite um orçamento.",
