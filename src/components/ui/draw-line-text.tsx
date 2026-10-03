@@ -56,12 +56,12 @@ export function DrawLineText({
       const timeline = gsap.timeline();
       timeline.to(letters, {
         strokeDashoffset: 0,
-        duration: 0.32,
+        duration: 0.5,
         ease: "power2.out",
-        stagger: oneByOne ? { amount: 0.08 } : 0,
+        stagger: oneByOne ? { amount: 0.14 } : 0,
       });
-      timeline.to(readable, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.4);
-      timeline.to(graphic, { opacity: 0, duration: 0.2, ease: "power2.out" }, 0.4);
+      timeline.to(readable, { opacity: 1, duration: 0.28, ease: "power2.out" }, 0.64);
+      timeline.to(graphic, { opacity: 0, duration: 0.28, ease: "power2.out" }, 0.64);
     });
     return () => media.revert();
   }, { scope: wrapper, dependencies: [text, oneByOne, afterFill, strokeWidth, decorative], revertOnUpdate: true });

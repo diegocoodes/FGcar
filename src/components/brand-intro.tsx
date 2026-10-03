@@ -13,7 +13,7 @@ export function BrandIntro() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.location.hash) return;
     const element = scope.current as HTMLDivElement;
     element.setAttribute("data-playing", "true");
-    const fade = animate(element, { opacity: [1, 0] }, { delay: 0.65, duration: 0.3, ease: "easeOut" });
+    const fade = animate(element, { opacity: [1, 0] }, { delay: 1, duration: 0.45, ease: "easeOut" });
     fade.then(() => { element.setAttribute("data-playing", "false"); });
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const cancel = () => {

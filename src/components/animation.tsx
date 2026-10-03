@@ -38,8 +38,8 @@ export function HeroEntrance({ children }: { children: ReactNode }) {
   useEffect(() => {
     const elements = scope.current.querySelectorAll("[data-enter]");
     const distance = window.matchMedia("(min-width: 768px)").matches ? 16 : 8;
-    const introDelay = !reduced && !window.location.hash ? 0.6 : 0;
-    const animations = Array.from(elements).map((element, index) => animate(element as HTMLElement, { opacity: element.classList.contains("hero-actions") ? [1, 1] : [0.8, 1], y: reduced ? [0, 0] : [distance, 0] }, { duration: 0.4, delay: introDelay + index * 0.08, ease: "easeOut" }));
+    const introDelay = !reduced && !window.location.hash ? 0.95 : 0;
+    const animations = Array.from(elements).map((element, index) => animate(element as HTMLElement, { opacity: element.classList.contains("hero-actions") ? [1, 1] : [0.8, 1], y: reduced ? [0, 0] : [distance, 0] }, { duration: reduced ? 0.2 : 0.6, delay: introDelay + (reduced ? 0 : index * 0.1), ease: "easeOut" }));
     return () => { animations.forEach((animation) => animation.complete()); };
   }, [reduced, animate, scope]);
   return <div ref={scope} className="hero-copy">{children}</div>;
@@ -55,7 +55,7 @@ export function Photo({ children, className = "", hero = false }: { children: Re
   useEffect(() => {
     if (!hero || reduced) return;
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
-    const animation = animate(scope.current, { scale: [mobile ? 1.02 : 1.04, 1] }, { duration: mobile ? 0.4 : 0.6, ease: "easeOut" });
+    const animation = animate(scope.current, { scale: [mobile ? 1.02 : 1.04, 1] }, { duration: mobile ? 0.6 : 0.8, delay: window.location.hash ? 0 : 0.95, ease: "easeOut" });
     return () => { animation.complete(); };
   }, [hero, reduced, animate, scope]);
   return <div ref={ref} className={`photo ${className}`}><motion.div className="photo-parallax" style={{ y: desktop ? y : 0 }}><div ref={scope} className="photo-entrance"><div className="photo-image">{children}</div></div></motion.div></div>;
