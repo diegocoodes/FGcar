@@ -23,7 +23,7 @@ export default function Home() {
           <HeroEntrance>
             <p className="eyebrow hero-eyebrow" data-enter>Estética automotiva em Santo André</p>
             <div className="hero-scene">
-              <h1 id="hero-title" aria-label="FGcar Garage" data-enter>FGCAR</h1>
+              <h1 id="hero-title" aria-label="Fcar Garage" data-enter>Fcar</h1>
               <Photo className="hero-car" hero><Image src="/images/hero-car-v2.webp" alt="Carro esportivo vermelho visto de frente e de lado, imagem ilustrativa" fill priority sizes="(max-width: 767px) 90vw, (max-width: 1100px) 90vw, 1080px" /></Photo>
             </div>
             <p className="hero-description" data-enter>Seu carro merece esse cuidado.</p>
@@ -42,7 +42,7 @@ export default function Home() {
           <section className="services-layout" id="sobre" aria-labelledby="about-title">
             <Reveal className="services-visual" variant="photo"><AboutPhoto /></Reveal>
             <Reveal className="services-about">
-              <p className="eyebrow">FGCAR Garage</p>
+              <p className="eyebrow">Fcar Garage</p>
               <h2 id="about-title">Sobre <span>nós</span></h2>
               <p className="about-tagline">Seu carro. Nosso cuidado.</p>
               <p>O brilho chama atenção. O cuidado faz a diferença. Da pintura aos vidros, tratamos cada superfície para valorizar o acabamento do seu carro.</p>
@@ -60,7 +60,7 @@ export default function Home() {
       <section className="care-section section-space" id="cuidados" tabIndex={-1} aria-labelledby="care-title"><div className="container">
         <Reveal className="care-heading"><p className="eyebrow">Cuidados com seu carro</p><h2 id="care-title">O cuidado que seu<br /><span>carro merece.</span></h2><p>Brilho, proteção e conforto. Encontre o cuidado para o seu dia a dia.</p></Reveal>
         <Reveal className="care-grid"><CareCards /></Reveal>
-        <Reveal className="care-note"><p>Na dúvida, conte como você usa seu carro. A gente ajuda a escolher.</p><a className="text-link" href="#contato">Fale com a FCar<ArrowUpRight size={16} /></a></Reveal>
+        <Reveal className="care-note"><p>Na dúvida, conte como você usa seu carro. A gente ajuda a escolher.</p><a className="text-link" href="#contato">Fale com a Fcar<ArrowUpRight size={16} /></a></Reveal>
       </div></section>
 
       <Testimonial1 />
@@ -74,7 +74,7 @@ export default function Home() {
           </Reveal>
           <Reveal className="contact-layout">
             <span className="contact-icon" aria-hidden="true"><MessageCircle size={30} /></span>
-            <p className="contact-card-label">Fale com a FGCAR Garage</p>
+            <p className="contact-card-label">Fale com a Fcar Garage</p>
             <ContactForm />
             <div className="contact-links">
               <div className="contact-detail"><MapPin size={18} aria-hidden="true" /><span>{site.location}</span></div>

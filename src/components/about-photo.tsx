@@ -5,7 +5,7 @@ export function AboutPhoto() {
     <figure id="about-photo" className="service-preview">
       <div className="photo service-photo">
         <Image
-          src="/images/about-fgcar.jpg"
+          src="/images/about-fcar.jpg"
           alt="Profissional com luvas realizando polimento no capô de um carro vermelho"
           fill
           sizes="(max-width: 767px) 90vw, (max-width: 1400px) 50vw, 700px"

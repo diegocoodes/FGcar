@@ -5,12 +5,12 @@ test("conteúdo, imagens, contato e layout", async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  await expect(page).toHaveTitle("FCar Garage | Estética automotiva em Santo André");
+  await expect(page).toHaveTitle("Fcar Garage | Estética automotiva em Santo André");
   await expect(page.locator("h1")).toHaveCount(1);
-  await expect(page.locator("h1")).toHaveAccessibleName("FGcar Garage");
+  await expect(page.locator("h1")).toHaveAccessibleName("Fcar Garage");
   await expect(page.locator(".hero-car img")).toHaveAttribute("src", /hero-car-v2\.webp/);
   await expect(page.locator(".service-item")).toHaveCount(5);
-  const contact = page.getByRole("link", { name: /Abrir WhatsApp da FGCAR/ });
+  const contact = page.getByRole("link", { name: /Abrir WhatsApp da Fcar/ });
   await expect(contact).toHaveAttribute("href", "https://wa.me/5511998393642");
   await expect(page.locator(".contact-layout")).not.toContainText("+55 11 99839-3642");
   await expect(contact).toHaveAttribute("rel", "noopener noreferrer");
@@ -51,13 +51,13 @@ test("formulário valida os campos e prepara a mensagem do WhatsApp", async ({ p
   await popup.waitForLoadState();
   const url = new URL(popup.url());
   expect(url.origin + url.pathname).toBe("https://wa.me/5511998393642");
-  expect(url.searchParams.get("text")?.replace(/\r\n/g, "\n")).toBe("Olá, FGCAR Garage! Gostaria de solicitar um orçamento.\nNome: João & Ana\nVeículo: Golf 2020\nServiço: Polimento técnico\nDetalhes: Marcas na pintura + capô\nQuero um orçamento.");
+  expect(url.searchParams.get("text")?.replace(/\r\n/g, "\n")).toBe("Olá, Fcar Garage! Gostaria de solicitar um orçamento.\nNome: João & Ana\nVeículo: Golf 2020\nServiço: Polimento técnico\nDetalhes: Marcas na pintura + capô\nQuero um orçamento.");
   await popup.close();
 });
 
 test("botão flutuante de WhatsApp acompanha a rolagem", async ({ page }) => {
   await page.goto("/");
-  const button = page.getByRole("link", { name: /Abrir WhatsApp da FGCAR/ });
+  const button = page.getByRole("link", { name: /Abrir WhatsApp da Fcar/ });
   await expect(button).toBeVisible();
   const before = (await button.boundingBox())!;
   await page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" }));
@@ -98,7 +98,7 @@ test("imagem do sobre permanece fixa ao selecionar serviços e cards", async ({ 
   const image = page.locator("#about-photo img");
   await image.scrollIntoViewIfNeeded();
   await expect(page.getByRole("heading", { name: "Sobre nós" })).toBeVisible();
-  await expect(image).toHaveAttribute("src", /about-fgcar\.jpg/);
+  await expect(image).toHaveAttribute("src", /about-fcar\.jpg/);
   await expect.poll(() => image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   const originalSource = await image.getAttribute("src");
   for (const id of ["vitrificacao", "ppf", "polimento", "insulfilm", "antivandalismo"]) {
@@ -169,7 +169,7 @@ test("movimento reduzido remove transformações", async ({ page }) => {
   await expect(page.locator(".draw-line-svg").first()).not.toBeVisible();
 });
 
-test("avaliações têm atribuição e a abertura FGcar termina sem bloquear o site", async ({ page }, testInfo) => {
+test("avaliações têm atribuição e a abertura Fcar termina sem bloquear o site", async ({ page }, testInfo) => {
   await page.addInitScript(() => {
     const state = window as unknown as Window & { introStates: string[] };
     state.introStates = [];
@@ -184,10 +184,10 @@ test("avaliações têm atribuição e a abertura FGcar termina sem bloquear o s
   await expect.poll(() => page.evaluate(() => (window as unknown as Window & { introStates: string[] }).introStates)).toContain("true");
   await page.waitForTimeout(180);
   await page.screenshot({ path: `test-results/intro-${testInfo.project.name}.png` });
-  await expect(page.locator("h1")).toHaveAccessibleName("FGcar Garage");
+  await expect(page.locator("h1")).toHaveAccessibleName("Fcar Garage");
   const intro = page.locator(".brand-intro");
   await expect(intro).toHaveAttribute("aria-hidden", "true");
-  await expect(intro.locator(".draw-line-readable")).toHaveText("FGcar");
+  await expect(intro.locator(".draw-line-readable")).toHaveText("Fcar");
   await expect(intro).toHaveCSS("pointer-events", "none");
   await expect(intro).toHaveAttribute("data-playing", "false");
   await expect(intro).not.toBeVisible();
@@ -195,7 +195,7 @@ test("avaliações têm atribuição e a abertura FGcar termina sem bloquear o s
   await expect.poll(() => page.locator(".draw-line-svg").evaluateAll((elements) => elements.every((element) => getComputedStyle(element).opacity === "0"))).toBe(true);
   await page.locator("#avaliacoes").scrollIntoViewIfNeeded();
   await expect(page.locator("#avaliacoes blockquote")).toHaveCount(4);
-  await expect(page.locator("#avaliacoes")).toContainText("FG Car Mecânica de Autos");
+  await expect(page.locator("#avaliacoes")).toContainText("Fcar Mecânica de Autos");
   await expect(page.locator("#avaliacoes")).toContainText("Marcos Cressoni");
   await expect(page.locator("#avaliacoes")).toContainText("Rodrigo Maita Ferreira");
   const avatars = page.locator("#avaliacoes .reviewer-photo");
@@ -206,7 +206,7 @@ test("avaliações têm atribuição e a abertura FGcar termina sem bloquear o s
   await expect(page.locator("#avaliacoes")).toContainText("Já fez alguns serviços no meu Passat CC e todos ficaram ótimos");
   await expect(page.locator("#avaliacoes")).not.toContainText("SolaceUI");
   const maps = page.getByRole("link", { name: /Ver no Google/ });
-  await expect(maps).toHaveAttribute("href", /https:\/\/www\.google\.com\/maps\/place\/FG\+Car\+/);
+  await expect(maps).toHaveAttribute("href", /https:\/\/www\.google\.com\/maps\/place\/Fcar\+/);
 });
 
 test("conteúdo e serviços funcionam sem JavaScript", async ({ browser }, testInfo) => {
@@ -215,7 +215,7 @@ test("conteúdo e serviços funcionam sem JavaScript", async ({ browser }, testI
   await page.goto(testInfo.project.use.baseURL!);
   await expect(page.locator("h1")).toBeVisible();
   await expect(page.locator(".brand-intro")).not.toBeVisible();
-  await expect(page.locator("h1")).toHaveAccessibleName("FGcar Garage");
+  await expect(page.locator("h1")).toHaveAccessibleName("Fcar Garage");
   await page.locator("#ppf summary").click();
   await expect(page.locator("#ppf .service-detail")).toBeVisible();
   if (testInfo.project.name === "mobile") await expect(page.getByRole("navigation", { name: "Navegação mobile" })).toBeVisible();

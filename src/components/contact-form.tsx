@@ -10,7 +10,7 @@ export function ContactForm() {
   const [service, setService] = useState("");
   const [details, setDetails] = useState("");
   const message = [
-    "Olá, FGCAR Garage! Gostaria de solicitar um orçamento.",
+    "Olá, Fcar Garage! Gostaria de solicitar um orçamento.",
     `Nome: ${name.trim()}`,
     `Veículo: ${vehicle.trim()}`,
     `Serviço: ${service}`,

@@ -34,7 +34,7 @@ export function BrandIntro() {
     <div ref={scope} className="brand-intro" data-playing="false" aria-hidden="true">
       <div className="intro-signature">
         {site.logo && <Image src={site.logo} width={150} height={150} alt="" className="intro-symbol" />}
-        <DrawLineText className="intro-name" text="FGcar" fontSize={170} letterSpacing={-5} strokeWidth={2} accentFrom={2} decorative />
+        <DrawLineText className="intro-name" text="Fcar" fontSize={170} letterSpacing={-5} strokeWidth={2} accentFrom={1} decorative />
         <span className="intro-label">Garage</span>
       </div>
     </div>

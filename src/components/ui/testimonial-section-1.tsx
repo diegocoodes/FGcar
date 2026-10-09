@@ -11,7 +11,7 @@ export default function Testimonial1() {
         <Reveal className="section-heading">
           <div>
             <p className="eyebrow">Avaliações no Google</p>
-            <h2 id="reviews-title">Quem já passou<br />pela FG Car.</h2>
+            <h2 id="reviews-title">Quem já passou<br />pela Fcar.</h2>
           </div>
           <div className="reviews-summary">
             <div className="reviews-score"><span>{googleReviews.rating.toLocaleString("pt-BR")}</span><Star size={22} fill="currentColor" aria-hidden="true" /><p>{googleReviews.reviewCount} avaliações no Google</p></div>

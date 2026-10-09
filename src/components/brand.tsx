@@ -7,7 +7,7 @@ export function Brand() {
       {site.logo ? (
         <Image src={site.logo} alt="" width={150} height={150} className="brand-image" />
       ) : null}
-      <span className="wordmark" aria-hidden="true"><span>F<span className="brand-red">Car</span></span><span className="wordmark-sub">GARAGE</span></span>
+      <span className="wordmark" aria-hidden="true"><span>F<span className="brand-red">car</span></span><span className="wordmark-sub">GARAGE</span></span>
     </a>
   );
 }
