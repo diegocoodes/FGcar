@@ -43,7 +43,7 @@ O rodapé reúne navegação, serviços, redes sociais e acesso ao orçamento. A
 
 ## Assets a substituir
 
-O símbolo fornecido em `public/images/logofcar.png` é usado no cabeçalho e no rodapé, preservando o arquivo, as cores e a proporção. Ele acompanha o nome tipográfico da empresa. Adicione uma versão de maior resolução para usos que exijam ampliação e um arquivo de favicon quando disponível.
+O símbolo fornecido em `public/images/logofcar.png` é usado no cabeçalho e no rodapé, preservando o arquivo, as cores e a proporção. Ele acompanha o nome tipográfico da empresa. O favicon em `src/app/favicon.ico` inclui versões de 16, 32 e 48 px da logotipo; `src/app/icon.png` preserva o PNG original. O Next.js insere os links dos ícones automaticamente. Adicione uma versão de maior resolução para usos que exijam ampliação.
 
 As fotografias são ilustrativas e não representam serviços executados pela Fcar. Não foi criada uma seção de trabalhos. As imagens foram obtidas no Unsplash e convertidas em WebP:
 
