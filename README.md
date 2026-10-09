@@ -20,6 +20,8 @@ npm run build
 npm start
 ```
 
+O build de produção usa Webpack para permitir o fallback do compilador SWC para WebAssembly em servidores com GLIBC antiga. A configuração fica em `next.config.mjs`, carregada diretamente pelo Node.js sem compilar TypeScript. Na hospedagem Next.js, mantenha Node.js 22, comando `npm run build` e diretório de saída `.next`.
+
 Para executar as verificações de navegação, layout e acessibilidade em desktop e celular, use `npm run test:e2e` após o build. Os testes usam o Google Chrome instalado no computador. O Playwright inicia e encerra o servidor de produção na porta 3100, permitindo continuar o desenvolvimento na porta 3000.
 
 ## Conteúdo e identidade
